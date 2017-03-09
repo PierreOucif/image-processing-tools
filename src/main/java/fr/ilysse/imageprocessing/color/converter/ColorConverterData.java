@@ -22,6 +22,7 @@ public class ColorConverterData {
     private int xMax;
     private int yMax;
     private LAB[][] LABTwoDim;
+    private BufferedImage initialImage;
 
     public BufferedImage getImagePostKMeans(Map<LAB,Integer> map){
         final BufferedImage finalImage = new BufferedImage(xMax,yMax,BufferedImage.TYPE_INT_RGB);
@@ -69,6 +70,7 @@ public class ColorConverterData {
     }
 
     public ColorConverterData(BufferedImage image){
+        this.initialImage = image;
         initializeColorDatas(image);
         this.rgbCluster = new HashMap<>();
         rgbCluster.put(0,new Color(255,0,0));
@@ -87,4 +89,6 @@ public class ColorConverterData {
     public Map<Color,LAB> getLABPMapToRGB(){return LABPMapToRGB;}
 
     public LAB[][] getLABTwoDim(){ return LABTwoDim;}
+
+    public BufferedImage getInitialImage(){ return  initialImage;}
 }

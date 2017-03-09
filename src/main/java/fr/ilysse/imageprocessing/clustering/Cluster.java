@@ -25,7 +25,7 @@ public class Cluster {
             meanLAB.setB(meanLAB.getB()/n);
             return meanLAB;
         }else{
-            return null;
+            return meanLAB;
         }
     }
 
